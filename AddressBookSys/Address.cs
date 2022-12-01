@@ -103,7 +103,40 @@ namespace Addressbook_Batch222
                 {
                     Console.WriteLine("Contact not found{0}", name);
                 }
+
+            }
+
+        }
+        public void DeleteContact()
+        {
+            Console.Write("Enter The first Name Of Contact You Have To Delete:");
+            string first_Usrname = Console.ReadLine();
+            Console.Write("Enter The Last Name Of Contact You Have To Delete:");
+            string last_Usrname = Console.ReadLine();
+            foreach (var contact in contacts)
+            {
+                if (contact.first_Name == first_Usrname && contact.last_Name == last_Usrname)
+                {
+                    contact.first_Name = "";
+                    contact.last_Name = "";
+                    contact.present_Address = "";
+                    contact.city = "";
+                    contact.state = "";
+                    contact.zip = "";
+                    contact.phone_Number = "";
+                    contact.email_Id = "";
+                    Console.WriteLine("Contact deleted SuccessFully");
+                }
+                else
+                {
+                    Console.WriteLine("Contact not found{0} {1}", first_Usrname, last_Usrname);
+                }
+                Console.WriteLine("\nAfter Deleting Details:");
+                Console.WriteLine(contact.ToString());
+                Console.WriteLine();
             }
         }
+
+
     }
 }
