@@ -13,6 +13,7 @@ namespace Addressbook_Batch222
         {
             Address address = new Address();
             address.AddMultipleContact();
+            address.Display();
         }
     }
 }
