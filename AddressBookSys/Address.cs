@@ -32,9 +32,14 @@ namespace Addressbook_Batch222
             Console.WriteLine("Enter your Email_Id");
             contact.email_Id = Console.ReadLine();
             contacts.Add(contact);
+
+        }
+        public void Display()
+        {
             foreach (var Contact in contacts)
             {
                 Console.WriteLine("---------Contact Details--------");
+                Console.WriteLine("Contact number:{0}", contacts.IndexOf(Contact) + 1);
                 Console.WriteLine(Contact.ToString());
             }
         }
@@ -86,7 +91,6 @@ namespace Addressbook_Batch222
                             data.phone_Number = PhoneNumber;
                             break;
                         case 8:
-
                             Console.WriteLine("Please enter the email : ");
                             string Email = Convert.ToString(Console.ReadLine());
                             data.email_Id = Email;
@@ -103,40 +107,18 @@ namespace Addressbook_Batch222
                 {
                     Console.WriteLine("Contact not found{0}", name);
                 }
-
             }
-
         }
-        public void DeleteContact()
+        public void AddMultipleContact()
         {
-            Console.Write("Enter The first Name Of Contact You Have To Delete:");
-            string first_Usrname = Console.ReadLine();
-            Console.Write("Enter The Last Name Of Contact You Have To Delete:");
-            string last_Usrname = Console.ReadLine();
-            foreach (var contact in contacts)
+            Console.WriteLine("Enter Number of Contacts to be Added:");
+            int input = Convert.ToInt32(Console.ReadLine());
+            while (input > 0)
             {
-                if (contact.first_Name == first_Usrname && contact.last_Name == last_Usrname)
-                {
-                    contact.first_Name = "";
-                    contact.last_Name = "";
-                    contact.present_Address = "";
-                    contact.city = "";
-                    contact.state = "";
-                    contact.zip = "";
-                    contact.phone_Number = "";
-                    contact.email_Id = "";
-                    Console.WriteLine("Contact deleted SuccessFully");
-                }
-                else
-                {
-                    Console.WriteLine("Contact not found{0} {1}", first_Usrname, last_Usrname);
-                }
-                Console.WriteLine("\nAfter Deleting Details:");
-                Console.WriteLine(contact.ToString());
-                Console.WriteLine();
+                Entry();
+                input--;
             }
+            Display();
         }
-
-
     }
 }

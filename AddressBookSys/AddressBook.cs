@@ -12,8 +12,7 @@ namespace Addressbook_Batch222
         public static void Main(string[] args)
         {
             Address address = new Address();
-            address.Entry();
-            address.DeleteContact();
+            address.AddMultipleContact();
         }
     }
 }
